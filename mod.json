@@ -1,0 +1,50 @@
+{
+    "geode": ">=v5.0.0",
+    "gd": {
+        "win": "2.2074",
+        "android": "2.2074",
+        "mac": "2.2074",
+        "ios": "2.2074"
+    },
+    "version": "v1.0.0",
+    "id": "filipetti.ai-level-designer",
+    "name": "AI Level Designer",
+    "developer": "filipetti",
+    "description": "Generuje fragment layoutu levela na podstawie opisu (promptu) wyslanego do wybranego API AI. Wynik trafia do schowka - wklej go w edytorze (Ctrl+V).",
+    "tags": ["editor", "utility"],
+    "settings": {
+        "ai-provider": {
+            "name": "Dostawca AI",
+            "description": "Ktorego API uzyc do generowania layoutu.",
+            "type": "string",
+            "default": "openai",
+            "one-of": ["openai", "anthropic", "custom"]
+        },
+        "api-key": {
+            "name": "Klucz API",
+            "description": "Twoj klucz API. Jest przechowywany lokalnie w ustawieniach moda i wysylany tylko do wybranego dostawcy (uwaga: NIE jest to przechowywanie szyfrowane).",
+            "type": "string",
+            "default": ""
+        },
+        "model": {
+            "name": "Model",
+            "description": "Nazwa modelu czatu danego dostawcy (np. aktualny szybki/tani model do tekstu). Sprawdz dokumentacje dostawcy jezeli nie masz pewnosci co wpisac.",
+            "type": "string",
+            "default": ""
+        },
+        "custom-endpoint": {
+            "name": "Wlasny endpoint (gdy Dostawca = custom)",
+            "description": "Pelny URL endpointu kompatybilnego z OpenAI Chat Completions (np. lokalny serwer LLM typu LM Studio / Ollama / OpenRouter). Uzywane tylko gdy Dostawca AI = custom.",
+            "type": "string",
+            "default": ""
+        },
+        "max-objects": {
+            "name": "Limit obiektow",
+            "description": "Maksymalna liczba obiektow akceptowana z jednej odpowiedzi AI - zabezpieczenie przed zbyt duza lub uszkodzona odpowiedzia.",
+            "type": "int",
+            "default": 200,
+            "min": 10,
+            "max": 1000
+        }
+    }
+}
